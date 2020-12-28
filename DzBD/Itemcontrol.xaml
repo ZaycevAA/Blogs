@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="DzBD.Itemcontrol"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DzBD"
+             mc:Ignorable="d" 
+              d:DesignWidth="800" Loaded="UserControl_Loaded">
+
+    
+        <Border BorderThickness="1" CornerRadius="1" Margin="2" >
+        <StackPanel>
+            <TextBlock TextOptions.TextHintingMode="Auto" Margin="5" TextWrapping="Wrap">
+                <Run FontSize="16"  FontWeight="Bold" Text="{Binding Title}"></Run>    
+                <Run FontSize="10" Foreground="LightGray" Text="{Binding Wasdate, Mode=OneWay}" ToolTip="{Binding Datelast}"></Run> 
+                <Run FontSize="10" Foreground="LightGray" Text="{Binding Date, StringFormat='{}{0:yyyy.MM.dd hh:mm}'}"></Run> <LineBreak/> 
+                <Run FontSize="14" Text="{Binding Text}"></Run>
+            </TextBlock>
+            <Separator/>
+            <UniformGrid Rows="1">
+                <TextBlock Margin="5,0" HorizontalAlignment="Left" >
+                    <Run Text="{Binding User.Fullname,Mode=OneWay}"></Run> 
+                    | Coment count: <Run Text="{Binding Coments.Count,Mode=OneWay,FallbackValue='0'}"></Run> 
+                    | Like: <Run Text="{Binding Likes.Count,Mode=OneWay,FallbackValue='0'}"></Run> 
+                    <Hyperlink Click="LikeClick" BaselineAlignment="Center">
+                            <TextBlock Visibility="{Binding LCor, Mode=OneWay}" > 
+                                    <Ellipse Stroke="#1b2024" Fill="{Binding Like, FallbackValue=#d8d9d4, Mode=OneWay}" VerticalAlignment="Bottom" Width="15" Height="15" HorizontalAlignment="Center"  />
+                                </TextBlock> 
+                        
+                    </Hyperlink> 
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Right" Margin="5,3">
+                        <Ellipse  Visibility="{Binding UserCor}" Height="10"  Stroke="DarkGray" Fill="DarkGray"  Width="3"></Ellipse>
+                    <Hyperlink Click="DeleteClick" >
+                        <TextBlock  Visibility="{Binding UserCor}" Style="{StaticResource hype}">Delete </TextBlock>
+                    </Hyperlink>
+                        <Ellipse  Visibility="{Binding UserCor}" Height="10"  Stroke="DarkGray" Fill="DarkGray"  Width="3"></Ellipse>
+                   
+                    <Hyperlink Click="EditClick" >
+                        <TextBlock Visibility="{Binding UserCor}" Style="{StaticResource hype}">Edit </TextBlock>
+                    </Hyperlink>
+                        
+                    <Ellipse  Visibility="{Binding UserCor}" Height="10"  Stroke="DarkGray" Fill="DarkGray"  Width="3"></Ellipse>
+                    <Hyperlink Click="MoreClick">
+                        <TextBlock x:Name="BMore1" Style="{StaticResource hype}">More </TextBlock> 
+                    </Hyperlink>
+                    <Ellipse x:Name="BMore2" Visibility="{Binding UserCor}" Height="10"  Stroke="DarkGray" Fill="DarkGray"  Width="3"></Ellipse>
+                    
+                    </TextBlock>
+            </UniformGrid>
+        </StackPanel>
+    </Border>
+
+</UserControl>

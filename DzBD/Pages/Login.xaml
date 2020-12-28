@@ -1,0 +1,28 @@
+﻿<Page x:Class="DzBD.Pages.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DzBD.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login">
+
+    <Grid>
+        <Border  BorderThickness="5" ></Border>
+        <StackPanel  Width="300"  VerticalAlignment="Center" Style="{StaticResource stak}" >
+                <Label Margin="5,5,5,0">Login</Label>
+                <TextBox Text="{Binding Login}" Margin="5,0"></TextBox>
+                <Label Margin="5,5,5,0">Password</Label>
+                <TextBox Margin="5,0" Text="{Binding Password}"></TextBox>
+            <UniformGrid Margin="0,10" Rows="1" Height="20">
+                <Button Margin="5,0" Click="Button_Click">Cancel</Button>
+                <Button  Margin="5,0"  Click="RegClick">Sign up</Button>
+                <Button  Margin="5,0"  Click="Button_Click_1">Login</Button>   
+            </UniformGrid>
+        </StackPanel>
+       
+        
+        
+    </Grid>
+</Page>
